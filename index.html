@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramadlan tiba</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #0e0e0e;
+            color: #00ffcc;
+        }
+
+        #countdown-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .countdown-box {
+            border: 2px solid #00ffcc;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 0 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #111;
+            color: #fff;
+            transition: background-color 0.3s;
+            animation: fadeIn 1s ease-in-out;
+            box-shadow: 0 0 20px rgba(0, 255, 204, 0.5);
+        }
+
+        .countdown-box:hover {
+            background-color: #1a1a1a;
+        }
+
+        .countdown-box b {
+            font-size: 36px;
+        }
+
+        button {
+            background-color: #00ffcc;
+            color: #111;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            animation: pulse 1s infinite;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #1a1a1a;
+        }
+
+        h2 {
+            color: #00ffcc;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2>PERKIRAAN BULAN RAMADLAN</h2>
+
+    <div id="countdown-container">
+        <div class="countdown-box" id="hours">
+            <div id="hours-number"></div>
+            <div>Jam</div>
+        </div>
+
+        <div class="countdown-box" id="minutes">
+            <div id="minutes-number"></div>
+            <div>Menit</div>
+        </div>
+
+        <div class="countdown-box" id="seconds">
+            <div id="seconds-number"></div>
+            <div>Detik</div>
+        </div>
+    </div>
+
+    <button id="days">Days</button>
+
+    <script>
+        var countdownDate = new Date("March 11, 2024 17:49:00 GMT+0000").getTime();
+
+        var x = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countdownDate - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("hours-number").innerHTML = "<b>" + hours + "</b>";
+            document.getElementById("minutes-number").innerHTML = "<b>" + minutes + "</b>";
+            document.getElementById("seconds-number").innerHTML = "<b>" + seconds + "</b>";
+            document.getElementById("days").innerHTML = days + " Hari";
+        }, 1000);
+    </script>
+</body>
+</html>
