@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ramadlan tiba</title>
     <style>
-        body {
+    body {
             font-family: 'Arial', sans-serif;
             text-align: center;
             margin: 50px;
@@ -117,8 +117,8 @@
 
     <script>
         // Menggunakan waktu Waktu Indonesia Barat (WIB) atau GMT+0700
-        var countdownDate = new Date(); // Ambil tanggal dan waktu saat ini
-        countdownDate.setHours(17, 49, 0, 0); // Atur jam, menit, detik, dan milidetik
+        var currentDate = new Date();
+        var countdownDate = new Date(currentDate.getFullYear(), 2, 11, 17, 49, 0, 0); // Tanggal 11 Maret tahun ini, jam 17:49 WIB
 
         var x = setInterval(function() {
             var now = new Date().getTime();
